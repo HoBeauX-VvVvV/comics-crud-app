@@ -35,4 +35,20 @@ router.post('/', async (req, res) => {
     }
 });
 
+// SHOW
+
+router.get('/:comicId', async (req, res) => {
+    try {
+      const currentUser = await User.findById(req.session.user._id);
+      const comic = currentUser.comicsCollection.id(req.params.comicId);
+      res.render('comics/show.ejs', {
+        comic: comic
+      });
+    } catch (error) {
+      console.log(error);
+        res.redirect('/')
+    }
+});
+
+
 module.exports = router;

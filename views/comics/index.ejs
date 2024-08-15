@@ -11,7 +11,10 @@
   <a href="/users/<%=user._id%>/comics/new">Add a new comic</a>
   <ul>
     <% comics.forEach((comic)=>{ %>
-      <li><%= comic.title %> by: <%= comic.author %></li>
+      <li>
+        <a href="/users/<%= user._id %>/comics/<%= comic._id %>">
+          <%= comic.title %> </a> by <%= comic.author %>
+      </li>
     <% }) %>
   </ul>
 </body>
