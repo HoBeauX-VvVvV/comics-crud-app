@@ -33,10 +33,18 @@ app.use(
 
 app.use(passUserToView);
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
   res.render('index.ejs', {
     user: req.session.user,
   });
+});*/
+
+app.get('/', (req, res) => {
+  if (req.session.user) {
+    res.redirect(`/users/${req.session.user._id}/commics`);
+  } else {
+    res.render('index.ejs');
+  }
 });
 
 app.use('/auth', authController);
