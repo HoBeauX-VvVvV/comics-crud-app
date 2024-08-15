@@ -9,5 +9,10 @@
     <%- include('../partials/_navbar.ejs') %>
   <h1>Your comics</h1>
   <a href="/users/<%=user._id%>/comics/new">Add a new comic</a>
+  <ul>
+    <% comics.forEach((comic)=>{ %>
+      <li><%= comic.title %> by: <%= comic.author %></li>
+    <% }) %>
+  </ul>
 </body>
 </html>
