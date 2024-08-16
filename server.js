@@ -12,6 +12,7 @@ const passUserToView = require('./middleware/pass-user-to-view.js');
 
 const authController = require('./controllers/auth.js');
 const comicsController = require('./controllers/comics.js');
+const usersController = require('./controllers/users.js');
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
@@ -50,6 +51,7 @@ app.get('/', (req, res) => {
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/users/:userId/comics', comicsController);
+app.use('/users', usersController);
 
 app.listen(port, () => {
   console.log(`Express is locked and loaded @ ${port}!`);

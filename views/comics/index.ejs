@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your comics</title>
+  <title><%= user.username %>'s comics</title>
 </head>
 <body>
     <%- include('../partials/_navbar.ejs') %>
-  <h1>Your comics</h1>
+  <h1>Your comics <%= user.username %></h1>
   <ul>
     <% comics.forEach((comic)=>{ %>
       <li>

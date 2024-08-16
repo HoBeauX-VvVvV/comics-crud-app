@@ -1,6 +1,7 @@
 <nav>
     <% if(user) { %>
       <a href="/users/<%= user._id %>/comics">Your Comics</a> 
+      <a href="/users">Explore our community</a>
       <a href="/auth/sign-out">Sign Out</a>
     <% } else { %>
       <a href="/auth/sign-in">Sign In</a>
