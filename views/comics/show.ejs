@@ -17,9 +17,14 @@
     <p>Year: <%= comic.year %></p>
   <% } %>
   <form
+    action="/users/<%= user._id %>/comics/<%= comic._id %>/edit">
+    <button type="submit">Edit this comic</button>
+  </form>
+  
+  
+  <form
     action="/users/<%= user._id %>/comics/<%= comic._id %>?_method=DELETE"
-    method="POST"
-  >
+    method="POST">
     <button type="submit">Delete this entry</button>
   </form>
 </body>

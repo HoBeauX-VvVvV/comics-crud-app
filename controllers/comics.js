@@ -64,5 +64,32 @@ router.delete('/:comicId', async (req, res) => {
     }
 });
 
+// EDIT
+router.get('/:comicId/edit', async (req, res) => {
+    try {
+      const currentUser = await User.findById(req.session.user._id);
+      const comic = currentUser.comicsCollection.id(req.params.comicId);
+      res.render('comics/edit.ejs', {
+        comic: comic
+      });
+    } catch (error) {
+      console.log(error);
+      res.redirect('/')
+    }
+});
+
+router.put('/:comicId', async (req, res) => {
+    try {
+      const currentUser = await User.findById(req.session.user._id);
+      const comic = currentUser.comicsCollection.id(req.params.comicId);
+      comic.set(req.body);
+      await currentUser.save()
+      res.redirect(`/users/${currentUser._id}/comics/${req.params.comicId}`);
+    } catch (error) {
+      console.log(error)
+      res.redirect('/')
+    }
+});
+
 
 module.exports = router;

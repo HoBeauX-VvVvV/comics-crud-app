@@ -8,7 +8,6 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
   <h1>Your comics</h1>
-  <a href="/users/<%=user._id%>/comics/new">Add a new comic</a>
   <ul>
     <% comics.forEach((comic)=>{ %>
       <li>
@@ -17,5 +16,6 @@
       </li>
     <% }) %>
   </ul>
+  <a href="/users/<%=user._id%>/comics/new">Add a new comic</a>
 </body>
 </html>

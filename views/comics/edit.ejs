@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <title>Edit a comic listing</title>
+</head>
+<body>
+  <h1>Edit a comick book listing</h1>
+  <%- include('../partials/_navbar.ejs') %>
+  <form action="/users/<%= user._id %>/comics/<%= comic._id %>?_method=PUT" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="<%= comic.title %>">
+    
+    <label for="issue">Issue / Volume #:</label>
+    <input type="number" name="issue" id="issue" value="<%= comic.issue %>">
+   
+    <label for="author">Author:</label>
+    <input type="text" name="author" id="author" value="<%= comic.author %>">
+
+    <label for="artist">Artist:</label>
+    <input type="text" name="artist" id="artist" value="<%= comic.artist %>">
+
+    <label for="publisher">Publisher:</label>
+    <input type="text" name="publisher" id="publisher" value="<%= comic.publisher %>">
+
+    <label for="year">Print Year:</label>
+    <input type="number" name="year" id="year" value="<%= comic.year %>">
+
+    <button type="submit">Edit Comic</button>
+  </form>
+  <a href="/users/<%= user._id %>/comics/">Back to comics index</a>
+</body>
+</html>
