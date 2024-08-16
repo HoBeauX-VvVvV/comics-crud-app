@@ -50,5 +50,19 @@ router.get('/:comicId', async (req, res) => {
     }
 });
 
+// DELETE
+
+router.delete('/:comicId', async (req, res) => {
+    try {
+      const currentUser = await User.findById(req.session.user._id);
+      currentUser.comicsCollection.id(req.params.comicId).deleteOne();
+      await currentUser.save()
+      res.redirect(`/users/${currentUser._id}/comics`);
+    } catch (error) {
+      console.log(error)
+      res.redirect('/')
+    }
+});
+
 
 module.exports = router;

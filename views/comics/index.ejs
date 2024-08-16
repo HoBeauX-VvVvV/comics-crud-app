@@ -13,7 +13,7 @@
     <% comics.forEach((comic)=>{ %>
       <li>
         <a href="/users/<%= user._id %>/comics/<%= comic._id %>">
-          <%= comic.title %> </a> by <%= comic.author %>
+          <%= comic.title %> </a>Vol <%= comic.issue %> by <%= comic.author %>
       </li>
     <% }) %>
   </ul>

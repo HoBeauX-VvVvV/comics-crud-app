@@ -16,5 +16,11 @@
   <% if (comic.year) { %>
     <p>Year: <%= comic.year %></p>
   <% } %>
+  <form
+    action="/users/<%= user._id %>/comics/<%= comic._id %>?_method=DELETE"
+    method="POST"
+  >
+    <button type="submit">Delete this entry</button>
+  </form>
 </body>
 </html>
