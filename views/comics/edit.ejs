@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
   <title>Edit a comic listing</title>
 </head>
 <body>
-  <h1>Edit a comick book listing</h1>
   <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit a comick book listing</h1>
   <form action="/users/<%= user._id %>/comics/<%= comic._id %>?_method=PUT" method="POST">
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" value="<%= comic.title %>">
@@ -28,8 +28,8 @@
     <label for="year">Print Year:</label>
     <input type="number" name="year" id="year" value="<%= comic.year %>">
 
-    <button type="submit">Edit Comic</button>
+    <br/><button type="submit">Edit Comic</button>
   </form>
-  <a href="/users/<%= user._id %>/comics/">Back to comics index</a>
+  <a class="index" href="/users/<%= user._id %>/comics/">Back to comics index</a>
 </body>
 </html>

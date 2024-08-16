@@ -1,10 +1,17 @@
-<nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/styles.css"/>
+
+<nav class="bar">
     <% if(user) { %>
-      <a href="/users/<%= user._id %>/comics">Your Comics</a> 
-      <a href="/users">Explore our community</a>
-      <a href="/auth/sign-out">Sign Out</a>
+      <a class="nav" href="/users/<%= user._id %>/comics">Your Comics</a> 
+      <a class="nav" href="/users">Explore our community</a>
+      <a class="nav" href="/auth/sign-out">Sign Out</a>
     <% } else { %>
-      <a href="/auth/sign-in">Sign In</a>
-      <a href="/auth/sign-up">Sign Up</a>
+      <a class="nav" href="/auth/sign-in">Sign In</a>
+      <a class="nav" href="/auth/sign-up">Sign Up</a>
     <% } %>
   </nav>

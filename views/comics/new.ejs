@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <link rel="stylesheet" href="/css/styles.css"/>
   <title>Create a comic listing</title>
 </head>
 <body>
@@ -28,8 +28,8 @@
     <label for="year">Print Year:</label>
     <input type="number" name="year" id="year">
 
-    <button type="submit">Add Comic</button>
+    <br/><button type="submit">Add Comic</button>
   </form>
-  <a href="/users/<%= user._id %>/comics/">Back to comics index</a>
+  <a class="index" href="/users/<%= user._id %>/comics/">Back to comics index</a>
 </body>
 </html>
