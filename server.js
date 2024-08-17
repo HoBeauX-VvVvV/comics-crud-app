@@ -22,6 +22,10 @@ mongoose.connection.on('connected', () => {
   console.log(`Locked and loading @ ${mongoose.connection.name}.`);
 });
 
+mongoose.connection.once('error', () => {
+  console.log(`Watch yourself, mongo is trippin' again`);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
@@ -55,5 +59,5 @@ app.use('/users/:userId/comics', comicsController);
 app.use('/users', usersController);
 
 app.listen(port, () => {
-  console.log(`Express is locked and loaded @ ${port}!`);
+  console.log(`Express is locked in @ ${port}!`);
 });

@@ -30,8 +30,8 @@ router.post('/', async (req, res) => {
       await currentUser.save();
       res.redirect(`/users/${currentUser._id}/comics`);
     } catch (error) {
-        res.status(400).send({ msg: error.message })
-        res.redirect('/')
+        res.status(400).send({ msg: error.message });
+        res.redirect('/');
     }
 });
 
@@ -45,8 +45,8 @@ router.get('/:comicId', async (req, res) => {
         comic: comic
       });
     } catch (error) {
-      console.log(error);
-        res.redirect('/')
+      res.status(400).send({ msg: error.message });
+        res.redirect('/');
     }
 });
 
@@ -59,7 +59,7 @@ router.delete('/:comicId', async (req, res) => {
       await currentUser.save()
       res.redirect(`/users/${currentUser._id}/comics`);
     } catch (error) {
-      console.log(error)
+      res.status(400).send({ msg: error.message });
       res.redirect('/')
     }
 });
@@ -73,7 +73,7 @@ router.get('/:comicId/edit', async (req, res) => {
         comic: comic
       });
     } catch (error) {
-      console.log(error);
+      res.status(400).send({ msg: error.message });
       res.redirect('/')
     }
 });
@@ -86,7 +86,7 @@ router.put('/:comicId', async (req, res) => {
       await currentUser.save()
       res.redirect(`/users/${currentUser._id}/comics/${req.params.comicId}`);
     } catch (error) {
-      console.log(error)
+      res.status(400).send({ msg: error.message });
       res.redirect('/')
     }
 });
