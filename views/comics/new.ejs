@@ -8,7 +8,7 @@
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Create a new comic book listing <%= user.username %></h1>
+  <h1>Create a comic listing, <%= user.username %></h1>
   <form action="/users/<%= user._id %>/comics" method="POST">
     <label for="title">Title:</label>
     <input type="text" name="title" id="title">
